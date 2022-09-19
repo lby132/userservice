@@ -1,0 +1,13 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: userservice
+
+eureka:
+  client:
+    register-with-eureka: true  # EUREKA 서버로부터 인스턴스들의 정보를 주기적으로 가져올것인지 성정하는 속성. true로 설정하면 갱신 된 정보를 받겠다는 설정.
+    fetch-registry: true
+    service-url:                #서버의 위치가 어디인지 그 항목을 지정하는 부분. 유레카서버 위치 폴더를 지정한다.
+      defaultZone: http://127.0.0.1:8761/eureka   #eureka라는 엔드포인트에 현재 여기서 가지고 있는 마이크로서비스를 등록한다.
