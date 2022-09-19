@@ -1,11 +1,13 @@
 server:
-  port: 9001
+  port: 0   #포트번호를 0번으로 하는건 인스턴스를 생성할때마다 새로운 포트를 부여한다는 뜻이다. 포트를 생성할때마다 부여할 필요가 없어진다.
 
 spring:
   application:
     name: userservice
 
 eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true  # EUREKA 서버로부터 인스턴스들의 정보를 주기적으로 가져올것인지 성정하는 속성. true로 설정하면 갱신 된 정보를 받겠다는 설정.
     fetch-registry: true
